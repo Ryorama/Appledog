@@ -171,8 +171,9 @@ public class AppledogEntity extends TameableEntity {
             if (itemStack.isOf(Items.PAINTING)) {
                 ItemStack stack = new ItemStack(Items.PAINTING);
                 NbtCompound nbt = new NbtCompound();
-                nbt.putString("id", "minecraft:painting");
-                nbt.putString("variant", "appledog:caninedy");
+                NbtCompound nbtVar = new NbtCompound();
+                nbtVar.putString("variant", "appledog:caninedy");
+                nbt.put("EntityTag", nbtVar);
                 stack.setNbt(nbt);
                 return returnItem(itemStack, player, stack);
             }
@@ -397,7 +398,7 @@ public class AppledogEntity extends TameableEntity {
 
     @Override
     public EntityView method_48926() {
-        return null;
+        return this.getEntityWorld();
     }
 
     @Override
